@@ -72,26 +72,6 @@ export default function Checkout() {
     [userForm]
   );
 
-  // const HandleSubmit = async () => {
-  //   console.log("yes");
-  //   // Check the schema if form is valid:
-  //   const isFormValid = await schema.isValid(userForm, {
-  //     abortEarly: false, // Prevent aborting validation after first error
-  //   });
-  //   console.log(isFormValid);
-  //   if (isFormValid) {
-  //     setDisabledBtn(true);
-  //     // If form is valid, continue submission.
-  //     dispatch(storeUserInfo(userForm));
-  //     dispatch(storeCheckoutCart(cart));
-  //     enqueueSnackbar("yes", {
-  //       variant: "success",
-  //     });
-  //     setUserForm(null);
-  //     setDisabledBtn(false);
-  //   }
-  // };
-
   return (
     <Layout titleSize="32px" titleMb="55px" pageTitle="Guest Checkout">
       <div className="mt-6 text-black">
