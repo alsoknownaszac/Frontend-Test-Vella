@@ -1,13 +1,16 @@
 import React from "react";
+import useFetch from "react-fetch-hook";
+import { useParams } from "react-router";
+import Layout from "../components/Layout/Layout";
 import ErrorHandling from "../components/Container/ErrorHandling";
 import ProductContainer from "../components/Category/ProductContainer";
-import Layout from "../components/Layout/Layout";
-import useFetch from "react-fetch-hook";
 import { SearchBar } from "../components/Basic/SearchBar";
 
-const Home: React.FC = () => {
+export const Category = () => {
+  const { category }: { category: string } = useParams();
+
   const { isLoading, error, data } = (useFetch as any)(
-    `https://fakestoreapi.com/products`
+    `https://fakestoreapi.com/products/category/${category}`
   );
 
   const [inputSearch, setInputSearch] = React.useState<any>("");
@@ -31,7 +34,7 @@ const Home: React.FC = () => {
   if (error)
     return <ErrorHandling>Something went wrong: {error}</ErrorHandling>;
   return (
-    <Layout pageTitle={"All"}>
+    <Layout pageTitle={category}>
       <SearchBar
         placeholder={"search for an item"}
         value={inputSearch}
@@ -47,5 +50,3 @@ const Home: React.FC = () => {
     </Layout>
   );
 };
-
-export default Home;
